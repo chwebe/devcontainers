@@ -1,8 +1,14 @@
-FROM python:alpine
+FROM python:alpine AS compile-image
 
-RUN apk add --no-cache gcc bash musl-dev libffi-dev
-RUN pip install --no-cache-dir python-binance
+RUN apk update && \ 
+    apk add --no-cache gcc bash musl-dev libffi-dev
+
+COPY requirements.txt .
+RUN pip install --user -r requirements.txt
+
+FROM python:alpine AS build-image
+COPY --from=compile-image /root/.local /root/.local
+
 WORKDIR /app
 
-# Keep the container running in the background
 CMD ["tail", "-f", "/dev/null"]
