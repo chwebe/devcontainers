@@ -4,3 +4,5 @@
     image: python-binance:1.0
     volumes:
       - ./app:/app
+    env_file:
+      - sec.env
