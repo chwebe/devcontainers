@@ -1,7 +1,9 @@
 ﻿services:
   python-binance:
     container_name: python-binance
-    image: python-binance:1.0
+    build:
+      context: .       
+      dockerfile: Dockerfile 
     volumes:
       - ./app:/app
     env_file:
