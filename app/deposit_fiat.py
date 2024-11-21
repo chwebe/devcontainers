@@ -99,6 +99,7 @@ if __name__ == "__main__":
 
         # Fetch deposit orders
         deposits = get_fiat_orders(transaction_type=0, start_time=start_time, end_time=end_time)
+        print(deposits)
         for order in deposits:
             print(f"Order No: {order['orderNo']}, Amount: {order['amount']} {order['fiatCurrency']}")
         
