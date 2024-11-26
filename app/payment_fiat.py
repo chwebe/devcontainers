@@ -80,6 +80,6 @@ if __name__ == "__main__":
         end_time = int(time.time() * 1000)  # Current time
 
         payments_history = get_fiat_payments_history(transaction_type, begin_time=begin_time, end_time=end_time)
-        print("Payments History:", payments_history)
+        print(payments_history)
     except Exception as e:
         print("Error:", e)

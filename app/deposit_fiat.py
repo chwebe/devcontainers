@@ -99,10 +99,11 @@ if __name__ == "__main__":
 
         # Fetch deposit orders
         deposits = get_fiat_orders(transaction_type=0, start_time=start_time, end_time=end_time)
-        print(deposits)
+        print(deposits[1])
         for order in deposits:
             print(f"Order No: {order['orderNo']}, Amount: {order['amount']} {order['fiatCurrency']}")
         
     except Exception as e:
         print("Error:", e)
 
+{'orderNo': 'OF5524217358754211841111', 'fiatCurrency': 'EUR', 'indicatedAmount': '10.00', 'amount': '9.00', 'totalFee': '1', 'method': 'Bank transfer (SEPA Instant)', 'status': 'Successful', 'createTime': 1731321355000, 'updateTime': 1731321355000}
